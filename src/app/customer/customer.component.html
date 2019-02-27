@@ -1,0 +1,22 @@
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar ie-nav" [containerInside]="false">
+  <logo>
+      <a class="logo navbar-brand" href="#"><strong>Inventory Management</strong></a>
+  </logo>
+  <links>
+      <ul class="navbar-nav mr-auto">
+          
+          <li class="nav-item waves-light" [routerLinkActive]="['active']"  mdbWavesEffect>
+              <a class="nav-link" routerLink="customerpurchase">Customer Purchase</a>
+          </li>
+          <li class="nav-item waves-light" [routerLinkActive]="['active']"  mdbWavesEffect>
+              <a class="nav-link"routerLink="cancelorder">Cancel Order</a>
+          </li>
+         
+      </ul>
+          <ul class="nav navbar-nav navbar-right">
+                <li><b style="color:white">Account</b><input type="text" class="form-control" value={{address}} readonly/></li>&nbsp;
+                <li><b style="color:white">Balance</b><input type="text" class="form-control" value={{ether}} readonly/></li>
+          </ul>
+      </links>
+</mdb-navbar>
+<router-outlet></router-outlet>

@@ -1,0 +1,53 @@
+<div class="container-fluid" style="margin-top: 100px; ">
+<div class="row">
+        <div class="col-sm-4">
+            <label><b>ID:&nbsp;&nbsp;</b></label>
+                <input #sortlist type="text" placeholder="Enter ID"><br><br>
+                <label><b>Select option:&nbsp;&nbsp;</b></label>
+                <select #options>
+                    <option value="0">OrderID</option>
+                    <!-- <option value="1">CustomerID</option>     -->
+                    <option value="2">ProductID</option>
+                
+                </select><br><br>
+                <input type="submit" class="btn btn-default" (click)="sortlisting(sortlist.value,options.value);"> 
+            </div>
+            <div class="col-sm-8">
+ <!-- sortlist table -->
+    
+ <table class="table" style="height:550px;width:950px;overflow-y:auto;display:block;">
+    
+        <!--Table head-->
+        <thead class="mdb-color darken-3">
+            <tr class="text-white">
+                <th>Order Id</th>
+                <th>Customer Id</th>
+                <th>Productid</th>
+                <th>product name</th>
+                <th>Quantity</th>
+                <th> Price</th>
+                <th>Date</th>
+                <th>Status</th>
+             
+            </tr>
+        </thead>
+        <!--Table head-->
+      
+        <!--Table body-->
+        <tbody>
+            <tr *ngFor="let sorting of sort;">
+                <td >{{sorting.oid}}</td>
+                <td >{{sorting.cusid}}</td>
+                <td >{{sorting.pid}} </td>
+                <td >{{sorting.pname}} </td>
+                <td>{{sorting.totalquantity}}</td>
+                <td>{{sorting.totalprice}}</td>
+                <td>{{sorting.dateVal | date:'d/M/y'}} </td>
+                <td>{{sorting.Status}}</td>
+            </tr>   
+        </tbody>
+        <!--Table body-->
+      </table>
+                </div>
+</div> 
+</div>

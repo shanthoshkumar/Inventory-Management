@@ -1,0 +1,40 @@
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar ie-nav" [containerInside]="false">
+        <logo>
+            <a class="logo navbar-brand" href="#"><strong>Inventory Management</strong></a>
+        </logo>
+        <links>
+            <ul class="navbar-nav mr-auto color bg-faded">
+              <li class="nav-item waves-light" [routerLinkActive]="['active']"  mdbWavesEffect>
+                  <a class="nav-link" routerLink="product" >Add Product</a>
+              </li>
+              <li class="nav-item waves-light" [routerLinkActive]="['active']" mdbWavesEffect>
+                  <a class="nav-link"routerLink="updateproduct">Update Product</a>
+              </li>
+              <li class="nav-item waves-light" [routerLinkActive]="['active']" mdbWavesEffect>
+                  <a class="nav-link"routerLink="viewcustomerorder">Purchase History</a>
+              </li>
+              <li class="nav-item waves-light" [routerLinkActive]="['active']" mdbWavesEffect>
+                  <a class="nav-link"routerLink="stockproduct">Products in Stock</a>
+              </li>
+              <li class="nav-item waves-light" [routerLinkActive]="['active']" mdbWavesEffect>
+                  <a class="nav-link"routerLink="transferowner" >Transfer Ownership</a>
+              </li>
+              <li class="nav-item waves-light" [routerLinkActive]="['active']"mdbWavesEffect>
+                    <a class="nav-link"routerLink="report" >Sales Report</a>
+                </li>
+              <li class="nav-item waves-light" [routerLinkActive]="['active']"mdbWavesEffect>
+                       <a class="nav-link"routerLink="sort" >Sort Report</a>
+                 </li>
+              <li class="nav-item waves-light" [routerLinkActive]="['active']"mdbWavesEffect>
+                  <a class="nav-link"routerLink="withdraw" >Withdraw</a>
+              </li>
+              
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                    <!-- <li><b style="color:white">Account</b><input type="text" class="form-control" value={{address}} readonly/></li>&nbsp; -->
+                    <li><b style="color:white">Balance</b><input type="text" class="form-control" value={{balance}} readonly/></li>
+              </ul>
+           
+        </links>
+      </mdb-navbar>  
+      <router-outlet></router-outlet>   

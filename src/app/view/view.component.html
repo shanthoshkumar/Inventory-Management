@@ -1,0 +1,55 @@
+<div class="container-fluid" style="margin-top: 100px; ">
+    <!-- <div>
+        <h5>View Customer  Order Details</h5>
+        <br>
+    </div> -->
+    <div class="row">
+<div class="col-sm-4">
+        <label >Start date:</label>
+        <input #datest type="datetime-local"><br><br>
+        <label >End date:</label>
+        <input #dateend type="datetime-local"><br><br>
+        <input type="submit" class="btn btn-default" (click)="date_view_details(datest.value,dateend.value);">
+        <br><br><p>Total saled product ({{ totalproductsale }})</p>
+        <p>Total price ({{ totalamount }})</p><br><br>
+</div>
+<div class="col-sm-8">
+<!--Table-->
+
+<table class="table" style="height:550px;width:1000px;overflow-y:auto;display:block;">
+
+        <!--Table head-->
+        <thead class="mdb-color darken-3">
+        <tr class="text-white">
+        <th>Order Id</th>
+        <th>Customer Id</th>
+        <th>Productid</th>
+        <th>product name</th>
+        <th>Quantity</th>
+        <th> Price</th>
+        <th>Date</th>
+        <th>Status</th>
+        
+        </tr>
+        </thead>
+        <!--Table head-->
+        
+        <!--Table body-->
+        <tbody>
+        <tr *ngFor="let order of details;">
+        <td >{{order.oid}}</td>
+        <td >{{order.cusid}}</td>
+        <td >{{order.pid}} </td>
+        <td >{{order.pname}} </td>
+        <td>{{order.totalquantity}}</td>
+        <td>{{order.totalprice}}</td>
+        <td>{{order.dateVal | date:'d/M/y'}} </td>
+        <td>{{order.Status}}</td>
+        </tr>   
+        </tbody>
+        <!--Table body-->
+        </table>
+</div>
+
+
+</div>

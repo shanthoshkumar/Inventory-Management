@@ -1,0 +1,139 @@
+
+<main>
+  <div class="container-fluid" style="margin-top: 100px; ">
+
+      <div class="row">
+          <div class="col-sm-2" >
+              <form class="form-horizontal" [formGroup]="angForm" novalidate >
+                <div>
+                 <h5><b>Update Product Details</b></h5>
+                </div>
+                <div >
+                        <div class="col-sm-6">
+                          <input type="text" placeholder="Enter Product Id" #proid>
+                        </div>
+                        <br>
+                        <div class="col-sm-6">
+                                <input type="button" class="btn btn-default" value="View Detail" (click)="show(proid.value)">
+                              </div>
+
+                      </div>
+                      <br>
+                <div class="form-group">
+                  <label class="control-label col-sm-4" for="productid">Product Id<font color="red">*</font></label>
+                  <div class="col-sm-6">
+                    <input type="number" class="form-control" min="0" name="productid" [(ngModel)]="productid"  formControlName="productid" [value]="productid"  (focus)="check()" (focusout)="checkOut()" placeholder="Enter Product Id">
+                  </div>
+                </div>
+               
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="quantity">No.of.Quantity<font color="red">*</font></label>
+                    <div class="col-sm-6">
+                      <input type="number" class="form-control" min="0" name="quantity" [(ngModel)]="quantity" formControlName="quantity" [value]="quantity"  placeholder="Enter Quantity">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-5" for="price">Price Per Quantity<font color="red">*</font></label>
+                    <div class="col-sm-6">
+                      <input type="number" class="form-control" min="0" name="price" [(ngModel)]="price" formControlName="price" [value]="price" placeholder="Enter  Price">
+                    </div>
+                  </div>
+
+
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                     <div *ngIf="angForm.controls['productid'].valid" >
+                          <div *ngIf="angForm.controls['quantity'].valid || angForm.controls['price'].valid"> 
+                              <!-- <div *ngIf="angForm.controls['price'].valid"> -->
+                                  <button type="submit" (click)="Product();" class="btn btn-success">Update</button>
+                              <!-- </div> -->
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </form>
+          </div>
+          <div class="col-sm-5">
+                <div>
+                        <h5><b>Details of the Product</b></h5>
+                    </div>
+      
+      
+    <div class="ScrollStyle">      <!--Table-->
+      <table class="table">
+      
+        <!--Table head-->
+        <thead style="background-color:green">
+            <tr class="text-white">
+               
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Brand Name</th>
+                <th>Quantity</th>
+                <th>Price per Quantity </th>
+            </tr>
+        </thead>
+        <!--Table head-->
+      
+        <!--Table body-->
+        <tbody>
+            <tr *ngFor="let i of view;">
+                <td >{{i.pid}}</td>
+                <td >{{i.pname}}</td>
+                <td >{{i.brand}}</td>
+                <td>{{i.quantity}}</td>
+                <td>{{i.price}}</td>
+            </tr>
+        </tbody>
+        <!--Table body-->
+      </table>
+      <!--Table-->
+      </div>
+          </div>
+          <div class="col-sm-5" >
+              <div>
+                  <h5><b>Out Of Stock Product Details</b></h5>
+              </div>
+
+
+<div class="ScrollStyle">
+<!--Table-->
+<table class="table">
+
+  <!--Table head-->
+  <thead style="background-color:red">
+      <tr class="text-white">
+         
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Brand Name</th>
+            <th>Quantity</th>
+            <th>Price per Quantity </th>
+      </tr>
+  </thead>
+  <!--Table head-->
+
+  <!--Table body-->
+  <tbody>
+      <tr *ngFor="let update of details;">
+          <td >{{update.pid}}</td>
+          <td >{{update.pname}}</td>
+          <td >{{update.brand}}</td>
+          <td>{{update.quantity}}</td>
+          <td>{{update.price}}</td>
+      </tr>
+  </tbody>
+  <!--Table body-->
+</table>
+<!--Table-->
+</div>
+          </div>
+        </div>
+      </div>
+
+</main>
+<ngx-spinner  bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff"
+loadingText="Loading..."
+type="ball-scale-multiple"></ngx-spinner>
